@@ -10,7 +10,8 @@
 
 @interface FISTicTacToeGame ()
 
-@property (nonatomic, strong) NSMutableArray *board;
+
+@property (nonatomic, readwrite, strong) NSMutableArray *board;
 
 
 @end

@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) NSUInteger xPlayerWinCount;
 @property (nonatomic, assign) NSUInteger oPlayerWinCount;
+@property (nonatomic, readonly, strong) NSMutableArray *board;
+
 
 -(void)resetBoard;
 
@@ -24,5 +26,6 @@
 
 -(BOOL)isADraw;
 -(NSString *)winningPlayer;
+
 
 @end
