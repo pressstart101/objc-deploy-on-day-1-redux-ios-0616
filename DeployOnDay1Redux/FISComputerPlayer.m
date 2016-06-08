@@ -20,13 +20,13 @@
     NSUInteger column = 0;
     NSUInteger row = 0;
 
-    while (![self.game.board[column][row] isEqualToString:@""]){
+    while (!([self.game.board[column][row] isEqualToString:@""])){
         column = arc4random_uniform(3);
         row = arc4random_uniform(3);
 
     }
     
-    return FISTicTacToePositionMake(column, row);
+    return FISTicTacToePositionMake(row, column);
 }
 
 @end

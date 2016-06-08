@@ -59,9 +59,9 @@
 {
     if ([self.board [row][column]isEqualToString:@""]){
         return YES;
-    }else{
-        return NO;
     }
+        return NO;
+    
 
 }
 
@@ -77,60 +77,60 @@
 
 -(NSString *)winningPlayer
 {
+    // NSString *winner = @"";
+    //    if ([self.board[0][0]isEqual:self.board[0][1]]&&[self.board[0][0]isEqual:self.board[0][2]]){
+    //        return self.board[0][0];
+    //    }
+    //    if ([self.board[1][0]isEqual:self.board[1][1]]&&[self.board[1][0]isEqual:self.board[1][2]]){
+    //        return self.board[1][0];
+    //    }
+    //    if ([self.board[2][0]isEqual:self.board[2][1]]&&[self.board[2][0]isEqual:self.board[2][2]]){
+    //        return self.board[2][0];
+    //    }
+    //    if ([self.board[0][0]isEqual:self.board[1][0]]&&[self.board[0][0]isEqual:self.board[2][0]]){
+    //        return self.board[0][0];
+    //    }
+    //    if ([self.board[0][1]isEqual:self.board[1][1]]&&[self.board[0][1]isEqual:self.board[2][1]]){
+    //        return self.board[0][1];
+    //    }
+    //    if ([self.board[0][2]isEqual:self.board[1][2]]&&[self.board[0][2]isEqual:self.board[2][2]]){
+    //        return self.board[0][2];
+    //    }
+    //    if ([self.board[0][0]isEqual:self.board[1][1]]&&[self.board[0][0]isEqual:self.board[2][2]]){
+    //        return self.board[0][0];
+    //    }
+    //    if ([self.board[0][2]isEqual:self.board[1][1]]&&[self.board[0][2]isEqual:self.board[2][0]]){
+    //        return self.board[0][2];
+    //    }else{
+    //     return winner;
+    //    }
     
-    NSString *winner = @"";
-    if ([self.board[0][0]isEqual:self.board[0][1]]&&[self.board[0][0]isEqual:self.board[0][2]]){
-        return self.board[0][0];
+    //NSLog(@"\n\n\n\n\n\n\n\n\n%@\n\n\n\n\n\n\n\n", winner);
+
+
+
+    for (NSUInteger i = 0; i < 3; i++){
+        if (self.board[0][i] == self.board[1][i] &&self.board[0][i] == self.board[2][i]){
+            return self.board[0][i];
+        }else if(self.board[i][0] == self.board[i][1] &&self.board[i][0] == self.board[i][2]){
+            return self.board[i][0];
+        }else if ([self.board[0][0]isEqual:self.board[1][1]]&&[self.board[0][0]isEqual:self.board[2][2]]){
+            return self.board[0][0];
+        }else if ([self.board[0][2]isEqual:self.board[1][1]]&&[self.board[0][2]isEqual:self.board[2][0]]){
+            return self.board[0][2];
+        }
     }
-    if ([self.board[1][0]isEqual:self.board[1][1]]&&[self.board[1][0]isEqual:self.board[1][2]]){
-        return self.board[1][0];
-    }
-    if ([self.board[2][0]isEqual:self.board[2][1]]&&[self.board[2][0]isEqual:self.board[2][2]]){
-        return self.board[2][0];
-    }
-    if ([self.board[0][0]isEqual:self.board[1][0]]&&[self.board[0][0]isEqual:self.board[2][0]]){
-        return self.board[0][0];
-    }
-    if ([self.board[0][1]isEqual:self.board[1][1]]&&[self.board[0][1]isEqual:self.board[2][1]]){
-        return self.board[0][1];
-    }
-    if ([self.board[0][2]isEqual:self.board[1][2]]&&[self.board[0][2]isEqual:self.board[2][2]]){
-        return self.board[0][2];
-    }
-    if ([self.board[0][0]isEqual:self.board[1][1]]&&[self.board[0][0]isEqual:self.board[2][2]]){
-        return self.board[0][0];
-    }
-    if ([self.board[0][2]isEqual:self.board[1][1]]&&[self.board[0][2]isEqual:self.board[2][0]]){
-        return self.board[0][2];
-    }else{
-     return winner;
+    return @"";
     }
 
-    NSLog(@"\n\n\n\n\n\n\n\n\n%@\n\n\n\n\n\n\n\n", winner);
-
-    
-    
-//    for (NSUInteger i = 0; i < [self.board[0] count]; i++){
-//        NSSet *set = self.board[0];
-//        if ([set count] == 1){
-//            return self.board[0][i];
-//        }
-//    }
-    
-    
-    
-    
-    
-}
 
 -(BOOL)isADraw
 {
-    if ([[self winningPlayer] isEqualToString:@""]){
-        return NO;
-    }else{
+    if (![self.board[0] containsObject:@""]&&![self.board[1] containsObject:@""]&&![self.board[2] containsObject:@""]&&[[self winningPlayer] isEqualToString:@""]){
         return YES;
     }
-
+    
+    return NO;
 }
 
 @end
